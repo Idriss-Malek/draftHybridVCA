@@ -1,0 +1,16 @@
+ng31304
+==== Mon 08 Sep 2025 03:21:09 AM EDT | job 49369024 | node ng31304 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=3
+CUDA_VISIBLE_DEVICES=0
+0, GPU-24e90a89-8064-8f4e-ed91-4551defab829, NVIDIA A100-SXM4-40GB
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/SA/tsp.py", line 169, in <module>
+    coordinates = torch.tensor(
+                  ^^^^^^^^^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+srun: error: ng31304: task 0: Exited with exit code 1

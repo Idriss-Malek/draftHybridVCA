@@ -1,0 +1,6 @@
+ng20104
+==== Tue 09 Sep 2025 01:17:20 AM EDT | job 49418100 | node ng20104 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-313040f9-2671-1e9d-fd45-9cfd7fb10483, NVIDIA A100-SXM4-40GB

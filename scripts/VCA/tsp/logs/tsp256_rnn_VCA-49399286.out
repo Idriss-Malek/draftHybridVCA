@@ -1,0 +1,14 @@
+ng31201
+==== Mon 08 Sep 2025 04:07:52 PM EDT | job 49399286 | node ng31201 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=1
+CUDA_VISIBLE_DEVICES=0
+0, GPU-4269881f-7241-34e8-799d-825cf47b3e69, NVIDIA A100-SXM4-40GB
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp256_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA256.json_20250908_160758.csv

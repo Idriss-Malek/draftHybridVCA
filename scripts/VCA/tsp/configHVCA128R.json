@@ -1,0 +1,24 @@
+{
+  "model_type": "DilatedRNN",
+  "device": "cuda",
+  "seed": 111,
+
+  "seq_size": 128,
+  "vocab_size": 128,
+
+  "num_layers": 7,
+  "units": 40,
+
+  "lr": 0.001,
+  "batch_size": 128,
+
+  "n_supervised": 2000,
+  "T0": 2.0,
+
+  "n_warmup": 0,
+  "n_anneal": 2048,
+  "iter_per_temp": 5,
+
+  "heuristic": "SA",
+  "heuristic_samples": "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/heuristic_samples"
+}
