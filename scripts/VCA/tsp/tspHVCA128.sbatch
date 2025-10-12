@@ -3,7 +3,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8G
-#SBATCH --time=30:00:00
+#SBATCH --time=11:00:00
 #SBATCH --gres=gpu:1                 # or: --gres=gpu:a100:1  (site-dependent)
 # #SBATCH --account=def-mh541-ab      # uncomment if required
 #SBATCH --output=logs/%x-%j.out      # ensure logs/ exists BEFORE sbatch

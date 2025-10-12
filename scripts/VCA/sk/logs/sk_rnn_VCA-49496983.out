@@ -1,0 +1,14 @@
+ng30711
+==== Wed 10 Sep 2025 01:48:20 PM EDT | job 49496983 | node ng30711 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-cdb35e90-e342-33ab-5f32-2f450ed581b4, NVIDIA A100-SXM4-40GB
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/sk/sk_seed2_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/sk/configVCA.json_20250910_134857.csv

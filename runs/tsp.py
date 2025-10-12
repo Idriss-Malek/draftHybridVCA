@@ -5,16 +5,19 @@ import json
 import csv
 import os
 from datetime import datetime
+import copy
 
 sys.path.append("/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA")
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 from envs import TSP
-from models import DilatedRNN
+from models import DilatedRNN, VanillaRNN
+from supervisedLosses import *
 
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
+
 
 tsp_data = {
     64: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N64.txt",
@@ -38,33 +41,64 @@ def main(config):
     env = TSP(coordinates)
     if config["model_type"] == "DilatedRNN":
         model = DilatedRNN(config, env)
-
+        model_opt = DilatedRNN(config, env)
+    if config["model_type"] == "VanillaRNN":
+        model = VanillaRNN(config, env)
     optimizer = optim.Adam(model.parameters(), lr=config["lr"])
+    original_weights = copy.deepcopy(model)
+    model_opt.load_state_dict(torch.load("/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/vca.pth", map_location=device), strict=True)
 
-    if config["n_supervised"] is not None and config["n_supervised"] > 0:
-        heuristic_samples_file = os.path.normpath(
-            os.path.join(
-                current_dir,
-                "..",
-                "heuristic_samples",
-                config["heuristic"],
-                "tsp",
-                f"tsp{config['seq_size']}anneal1024.pt",
-            )
+    # if config["n_supervised"] is not None and config["n_supervised"] > 0:
+    heuristic_samples_file = os.path.normpath(
+        os.path.join(
+            current_dir,
+            "..",
+            "heuristic_samples",
+            config["heuristic"],
+            "tsp",
+            f"tsp{config['seq_size']}anneal1024.pt",
         )
-        heuristic_samples_idx = torch.load(heuristic_samples_file, map_location=device)
-        heuristic_samples = F.one_hot(
-            heuristic_samples_idx, num_classes=heuristic_samples_idx.size(1)
-        ).to(device=device, dtype=torch.float64)
-        heuristic_energies = env.energy(heuristic_samples)
-        supervisedTemp = torch.std(heuristic_energies, correction=0) / 2
-        p_train = F.softmax(-heuristic_energies / supervisedTemp, dim = -1)
+    )
+    heuristic_samples_idx = torch.load(heuristic_samples_file, map_location=device)
+    heuristic_samples = F.one_hot(
+        heuristic_samples_idx, num_classes=heuristic_samples_idx.size(1)
+    ).to(device=device, dtype=torch.float64)
+    heuristic_energies = env.energy(heuristic_samples)
+    supervisedTemp = torch.std(heuristic_energies, correction=0) / 2
+    p_train = F.softmax(-heuristic_energies / supervisedTemp, dim = -1)
 
     T0 = config["T0"]
-
+    heurSol_top5 = torch.index_select(heuristic_samples, dim=0, index=torch.topk(heuristic_energies, 5, largest=False, sorted=True).indices)
+    heurEn_top5 = torch.index_select(heuristic_energies, dim=0, index=torch.topk(heuristic_energies, 5, largest=False, sorted=True).indices)
     for t in range(config["n_supervised"]):
+        optimizer.zero_grad()
         heuristic_log_probs = model(heuristic_samples)
-        loss = torch.sum(p_train * (p_train.log() - heuristic_log_probs))
+        energies = env.energy(heuristic_samples)
+        FreeEnergy = energies + T0 * heuristic_log_probs
+        F_detached = FreeEnergy.detach()
+        if config.get('supervised_loss', None) is None:
+            loss = forward_kl(p_train, heuristic_log_probs)
+        else:
+            if config['supervised_loss'] == 'forward_kl':
+                loss = forward_kl(p_train, heuristic_log_probs)
+            if config['supervised_loss'] == 'reverse_kl':
+                loss = reverse_kl(p_train, heuristic_log_probs)
+            if config['supervised_loss'] == 'soft_reverse_kl':
+                loss = soft_reverse_kl(p_train, heuristic_log_probs)
+
+        loss.backward()
+
+        optimizer.step()
+    
+    for t in range(config.get("n_supervised2", 0)):
+        optimizer.zero_grad()
+        heuristic_log_probs = model(heuristic_samples)
+        loss = normalize_then_reverse_kl(p_train, heuristic_log_probs)
+        loss.backward()
+        optimizer.step()
+    
+    # supervised_weights = copy.deepcopy(model)
+
 
     for _ in range(config["n_warmup"]):
 
@@ -88,21 +122,106 @@ def main(config):
     #         record[0] = min(torch.min(energies).item(), record[0])
 
     # Annealing step
+    optimizer = optim.Adam(model.parameters(), lr=config["lr"])
     for t in range(config["n_anneal"]):
         T = T0 * (1 - t / config["n_anneal"])
         for _ in range(config["iter_per_temp"]):
             optimizer.zero_grad()
+            heuristic_log_probs = model(heuristic_samples)
             solutions = model.sample(config["batch_size"])
             log_probs = model(solutions)
             energies = env.energy(solutions)
             FreeEnergy = energies + T * log_probs
             F_detached = FreeEnergy.detach()
-            loss = torch.mean(log_probs * F_detached) - torch.mean(
-                log_probs
+            loss = torch.mean(log_probs * F_detached) - torch.mean(log_probs
             ) * torch.mean(F_detached)
             loss.backward()
-            optimizer.step()
-            
+
+ 
+    # torch.save(model.state_dict(), "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/vca.pth")
+    # from torch.nn.utils import parameters_to_vector, vector_to_parameters
+
+    # def _device_of(model):
+    #     return next(model.parameters()).device
+
+    # def diag_fisher_selfsample(model_star,
+    #                         n_batches: int = 100,
+    #                         batch_size: int = 128,
+    #                         clamp_min: float = 1e-12):
+    #     """
+    #     Estimates diag(F(theta*)) using x ~ p_{theta*} via model_star.sample(batch_size).
+    #     Works for generative models where model(x) returns log_prob(x) (score function training).
+    #     """
+    #     model_star.eval()
+    #     device = _device_of(model_star)
+
+    #     diagF = None
+    #     for _ in range(n_batches):
+    #         # 1) Sample from p_{theta*}
+    #         with torch.no_grad():
+    #             x = model_star.sample(batch_size)  # shape depends on your model
+    #             x = x.to(device)
+
+    #         # 2) Compute mean negative log-likelihood and its gradient wrt theta*
+    #         model_star.zero_grad(set_to_none=True)
+    #         logp = model_star(x)               # expected: log p_{theta*}(x)
+    #         nll = (-logp).mean()
+    #         nll.backward()
+
+    #         # 3) Collect grads and accumulate squared grads (empirical Fisher diag)
+    #         g = []
+    #         for p in model_star.parameters():
+    #             if p.requires_grad:
+    #                 g.append(torch.zeros_like(p) if p.grad is None else p.grad.detach())
+    #         gvec = parameters_to_vector(g)
+    #         diag = gvec * gvec
+    #         diagF = diag if diagF is None else (diagF + diag)
+
+    #     diagF = diagF / max(1, n_batches)
+    #     return diagF.clamp_min(clamp_min)
+
+    # def fisher_dist2(model, model_star, diagF):
+    #     v = parameters_to_vector([p.detach() for p in model.parameters()]) - \
+    #         parameters_to_vector([p.detach() for p in model_star.parameters()])
+    #     return torch.sum(v*v*diagF).item()
+    # def fisher_cosine(model1, model2, model_star, diagF, eps: float = 1e-12):
+   
+    #     vec1 = parameters_to_vector([p.detach() for p in model1.parameters()])
+    #     vec2 = parameters_to_vector([p.detach() for p in model2.parameters()])
+    #     vec_star = parameters_to_vector([p.detach() for p in model_star.parameters()])
+
+    #     v1 = vec1 - vec_star
+    #     v2 = vec2 - vec_star
+
+    #     # Ensure diagF on same device/dtype
+    #     diagF = diagF.to(v1.device).type_as(v1)
+
+    #     # Fisher inner products
+    #     num = torch.sum(v1 * v2 * diagF)
+
+    #     n1_sq = torch.sum(v1 * v1 * diagF)
+    #     n2_sq = torch.sum(v2 * v2 * diagF)
+
+    #     denom = torch.sqrt(n1_sq.clamp_min(eps)) * torch.sqrt(n2_sq.clamp_min(eps))
+    #     if denom.abs() < eps:
+    #         return 0.0  # both vectors effectively zero under the Fisher metric
+
+    #     # Clamp for numerical safety into [-1, 1]
+    #     cosine = (num / denom).item()
+    #     if cosine > 1.0:
+    #         cosine = 1.0
+    #     elif cosine < -1.0:
+    #         cosine = -1.0
+    #     return cosine
+    # diagF = diag_fisher_selfsample(model)
+    # print("Original weights:", fisher_dist2(original_weights, model_opt, diagF))
+    # print("After Forward KL supervised warm up:", fisher_dist2(model, model_opt, diagF))
+    # try:
+    #     print("Cosine", fisher_cosine(original_weights,model,model_opt,diagF))
+    # except:
+    #     print("Cosine non available because there is a 0 norm")
+    
+
     record["mean"] = 0.0
     record["min"] = float("inf")
     with torch.no_grad():
@@ -118,7 +237,6 @@ def main(config):
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(
-        description="Train NeighborVCA model on TSP and save results."
     )
     parser.add_argument("--config", required=True, help="Path to JSON config file.")
     parser.add_argument(

@@ -1,0 +1,14 @@
+ng31204
+==== Tue 16 Sep 2025 04:26:29 AM EDT | job 49748894 | node ng31204 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-e35fb305-ef4d-ec8c-3232-542164360c1f, NVIDIA A100-SXM4-40GB
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/wpe/wpe_seed3_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/wpe/configVCA.json_20250916_042704.csv

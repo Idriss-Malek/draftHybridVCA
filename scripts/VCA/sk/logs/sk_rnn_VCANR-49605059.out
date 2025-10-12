@@ -1,0 +1,9 @@
+ng10605
+==== Fri 12 Sep 2025 01:43:04 AM EDT | job 49605059 | node ng10605 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=0
+CUDA_VISIBLE_DEVICES=0
+0, GPU-48d36db9-07ad-9e9a-c45a-811b787addb4, NVIDIA A100-SXM4-40GB
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** STEP 49605059.0 ON ng10605 CANCELLED AT 2025-09-12T07:43:16 ***
+slurmstepd: error: *** JOB 49605059 ON ng10605 CANCELLED AT 2025-09-12T07:43:16 ***

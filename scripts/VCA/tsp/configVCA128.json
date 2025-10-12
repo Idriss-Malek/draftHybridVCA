@@ -1,7 +1,7 @@
 {
   "model_type": "DilatedRNN",
   "device": "cuda",
-  "seed": 112,
+  "seed": 111,
 
   "seq_size": 128,
   "vocab_size": 128,

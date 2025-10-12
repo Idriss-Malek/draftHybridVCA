@@ -33,5 +33,5 @@ echo "SLURM_JOB_GPUS=${SLURM_JOB_GPUS-}"
 echo "CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES-}"
 nvidia-smi --query-gpu=index,uuid,name --format=csv,noheader
 
-srun python /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp.py\
+srun python /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ada.py\
     --config /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA128.json

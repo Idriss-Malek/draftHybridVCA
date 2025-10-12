@@ -1,7 +1,7 @@
 {
   "model_type": "DilatedRNN",
   "device": "cuda",
-  "seed": 112,
+  "seed": 113,
 
   "seq_size": 64,
   "vocab_size": 64,
@@ -15,7 +15,7 @@
   "n_supervised": 0,
   "T0": 2.0,
 
-  "n_warmup": 2000,
+  "n_warmup": 0,
   "n_anneal": 1024,
   "iter_per_temp": 5,
 

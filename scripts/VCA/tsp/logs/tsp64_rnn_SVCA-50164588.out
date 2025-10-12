@@ -1,0 +1,10 @@
+ng31204
+==== Thu 25 Sep 2025 11:30:58 AM EDT | job 50164588 | node ng31204 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-e35fb305-ef4d-ec8c-3232-542164360c1f, NVIDIA A100-SXM4-40GB
+/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_superviser.py:63: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  heuristic_samples_idx = torch.load(heuristic_samples_file, map_location=device)
+slurmstepd: error: *** JOB 50164588 ON ng31204 CANCELLED AT 2025-09-25T16:12:12 ***
+slurmstepd: error: *** STEP 50164588.0 ON ng31204 CANCELLED AT 2025-09-25T16:12:12 ***

@@ -1,0 +1,59 @@
+ng30701
+==== Thu 18 Sep 2025 01:34:19 PM EDT | job 49882547 | node ng30701 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=0
+CUDA_VISIBLE_DEVICES=0
+0, GPU-e28263d7-0411-1a86-053a-d6f860afb1c3, NVIDIA A100-SXM4-40GB
+/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp.py:56: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  heuristic_samples_idx = torch.load(heuristic_samples_file, map_location=device)
+p_train: 
+tensor([4.6779e-04, 2.3821e-04, 9.8217e-05, 7.1680e-03, 1.9345e-02, 3.4830e-05,
+        1.6194e-04, 3.5556e-03, 1.1296e-03, 1.2010e-03, 6.2848e-04, 3.6198e-04,
+        3.3056e-02, 2.2798e-04, 1.3118e-03, 4.0927e-04, 9.5792e-05, 1.3733e-02,
+        7.2112e-03, 3.2111e-04, 4.5530e-02, 1.5951e-03, 2.7987e-05, 1.3734e-04,
+        3.1735e-03, 8.2170e-04, 3.9087e-04, 1.2768e-02, 1.2152e-03, 1.7675e-04,
+        1.3643e-02, 3.9663e-03, 3.3428e-03, 1.2970e-03, 4.8519e-03, 4.9811e-04,
+        3.1333e-04, 1.8333e-04, 9.5711e-03, 1.2206e-04, 6.0089e-03, 1.7454e-03,
+        1.3498e-03, 2.0543e-04, 8.5240e-03, 2.7671e-03, 1.3036e-03, 1.0699e-04,
+        5.8007e-02, 8.7233e-05, 1.1396e-02, 2.3797e-03, 1.0996e-04, 7.6063e-05,
+        3.2831e-03, 2.0591e-04, 5.4070e-05, 1.3942e-03, 2.9283e-04, 8.1574e-05,
+        1.0224e-02, 4.6668e-04, 1.0982e-03, 6.4795e-03, 2.3709e-01, 8.7768e-05,
+        4.6631e-04, 1.2396e-02, 1.3576e-02, 6.8977e-04, 4.3205e-05, 3.5336e-04,
+        9.2584e-02, 8.5765e-04, 1.5342e-03, 1.1071e-03, 1.8822e-03, 4.1894e-02,
+        1.2077e-03, 1.3327e-03, 1.0337e-04, 1.5899e-04, 2.3881e-03, 9.6223e-04,
+        3.9607e-06, 1.4717e-03, 3.4362e-04, 1.4068e-04, 2.4331e-02, 1.4595e-03,
+        2.7327e-04, 3.5473e-04, 1.1415e-03, 3.7926e-04, 4.1184e-03, 3.5698e-03,
+        3.8392e-04, 9.2025e-02, 9.3454e-06, 2.6528e-04, 2.4370e-03, 1.0046e-02,
+        7.7132e-05, 1.0403e-03, 2.4547e-03, 2.0251e-03, 4.5893e-04, 2.1686e-03,
+        1.9451e-02, 4.6297e-03, 5.9284e-05, 5.5396e-04, 7.7215e-04, 1.1934e-03,
+        2.5067e-03, 8.4097e-04, 1.4046e-03, 1.9020e-02, 1.7958e-03, 2.6481e-02,
+        3.8998e-04, 5.4563e-03, 1.4582e-04, 3.1602e-02, 8.7371e-04, 3.2229e-04,
+        3.5359e-04, 8.4224e-03], device='cuda:0', dtype=torch.float64)
+p_theta
+tensor([3.7336e-145, 7.2706e-155, 1.4789e-162,  1.8511e-20,  8.1388e-13,
+        3.1075e-175, 4.6135e-168,  3.3949e-36, 3.2754e-110,  3.2874e-72,
+        7.1705e-104, 5.7993e-137,  1.2755e-07, 1.4500e-149, 5.1794e-114,
+        1.7527e-134, 1.4530e-159,  3.1223e-13,  1.1048e-24, 1.2696e-135,
+         2.7771e-06,  3.9704e-62, 6.9800e-171, 2.5709e-201,  1.4843e-36,
+        2.2703e-108, 9.7638e-132,  1.2226e-13,  1.6275e-83, 6.7724e-122,
+         4.0755e-16,  6.9585e-41,  2.0547e-38,  5.1203e-89,  3.2721e-24,
+        1.6949e-128, 1.1547e-173, 8.3694e-184,  7.8127e-22, 3.8369e-200,
+         1.3004e-22,  7.7359e-61,  1.4474e-85, 2.4520e-139,  5.3835e-18,
+         9.7458e-54,  4.5142e-71, 1.5258e-139,  6.7684e-06, 1.2414e-237,
+         1.1089e-15,  1.4282e-56, 1.6818e-167, 8.1947e-220,  5.7561e-33,
+        2.2381e-149, 9.5002e-171,  1.6412e-87, 2.5218e-205, 8.2556e-181,
+         4.9642e-14, 5.8029e-102,  2.0691e-74,  3.0018e-24,  1.0498e-01,
+        4.3108e-158, 8.5819e-158,  2.8911e-18,  2.0680e-13, 5.6159e-106,
+        1.6410e-244, 4.1848e-152,  1.8876e-03, 8.0478e-133,  2.8392e-85,
+         1.3439e-77,  2.1920e-80,  3.0479e-05,  6.7004e-80,  2.5966e-94,
+        2.7627e-187, 3.0220e-151,  2.4933e-63, 8.4218e-100, 2.5098e-178,
+         6.8253e-77, 2.8639e-130, 2.7829e-137,  2.6867e-10,  4.9708e-71,
+        7.2197e-177, 5.2785e-162,  8.2839e-84, 1.2080e-138,  1.3181e-44,
+         4.3834e-38, 6.2218e-133,  1.9079e-03, 7.1686e-268, 6.5612e-152,
+         2.8995e-42,  2.8954e-20, 6.5601e-164, 7.6039e-102,  8.6969e-45,
+         5.2319e-82, 2.0885e-123,  8.5818e-59,  6.1278e-08,  3.1311e-35,
+        7.4654e-171, 1.3831e-144,  4.1479e-99,  5.5880e-76,  1.0112e-39,
+         1.7774e-87,  8.3744e-74,  1.1858e-09,  1.0063e-64,  5.7795e-09,
+        6.1827e-137,  3.6999e-30, 1.2641e-188,  1.6588e-08, 5.0829e-102,
+        1.1051e-150, 2.3165e-123,  1.3026e-21], device='cuda:0',
+       dtype=torch.float64, grad_fn=<ExpBackward0>)

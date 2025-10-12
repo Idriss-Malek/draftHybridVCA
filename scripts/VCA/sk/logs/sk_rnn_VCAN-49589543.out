@@ -1,0 +1,39 @@
+ng10401
+==== Thu 11 Sep 2025 04:23:58 PM EDT | job 49589543 | node ng10401 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=0
+CUDA_VISIBLE_DEVICES=0
+0, GPU-3b315504-2da3-d2e5-abfa-e2bf20c6f41c, NVIDIA A100-SXM4-40GB
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/sk.py", line 176, in <module>
+    result = main(config, sk_data)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/sk.py", line 100, in main
+    solutions = model.sample(config["batch_size"])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/neighborModels/mlp.py", line 115, in sample
+    logits = self.net(current.float())  # (B, N+1)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 125, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument mat1 in method wrapper_CUDA_addmm)
+srun: error: ng10401: task 0: Exited with exit code 1

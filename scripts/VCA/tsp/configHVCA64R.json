@@ -13,6 +13,7 @@
   "batch_size": 128,
 
   "n_supervised": 2000,
+  "supervised_loss": "reverse_kl",
   "T0": 2.0,
 
   "n_warmup": 0,
@@ -21,4 +22,5 @@
 
   "heuristic": "SA",
   "heuristic_samples": "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/heuristic_samples"
+
 }

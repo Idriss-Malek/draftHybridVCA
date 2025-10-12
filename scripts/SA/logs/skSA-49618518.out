@@ -1,0 +1,18 @@
+ng10801
+==== Fri 12 Sep 2025 01:39:02 PM EDT | job 49618518 | node ng10801 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=1
+CUDA_VISIBLE_DEVICES=0
+0, GPU-b766178d-15ae-970f-6872-aba35bc078ae, NVIDIA A100-SXM4-40GB
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/SA/sk.py", line 190, in <module>
+    result = simulated_annealing_sk(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/SA/sk.py", line 31, in simulated_annealing_sk
+    assert n_temps >= 1 and steps_per_temp >= 0 and warmup_steps >= 0
+                                                    ^^^^^^^^^^^^^^^^^
+AssertionError
+srun: error: ng10801: task 0: Exited with exit code 1

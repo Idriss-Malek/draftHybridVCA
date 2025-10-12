@@ -1,0 +1,15 @@
+ng10104
+==== Mon 29 Sep 2025 01:55:16 AM EDT | job 50316495 | node ng10104 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-0c1e46b3-910d-ad59-cb0b-ade6f31b2797, NVIDIA A100-SXM4-40GB
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ada.py", line 323, in <module>
+    result = main(config)
+             ^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ada.py", line 55, in main
+    FreeEnergy = energies + T0 * log_probs
+                            ^^
+UnboundLocalError: cannot access local variable 'T0' where it is not associated with a value
+srun: error: ng10104: task 0: Exited with exit code 1

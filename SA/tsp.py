@@ -150,56 +150,73 @@ def simulated_annealing_tsp(
         out["trace_best"] = trace_best.detach().cpu()
     return out
 
+
 if __name__ == "__main__":
+    from pathlib import Path
+    import numpy as np
+
     tsp_data = {
         64: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N64.txt",
         128: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N128.txt",
         256: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N256.txt",
     }
-   
-    for i in [64,128,256]:
+
+    seeds = [111, 112, 113]
+    n_anneal_grid = [16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+
+    for i in [64, 128, 256]:
+        # ---- load coordinates ----
         coords = []
         with open(tsp_data[i], "r") as f:
             lines = f.readlines()
-            n = int(lines[0].strip())  # first line = number of coordinates
+            n = int(lines[0].strip())
             for line in lines[1:]:
                 x, y = map(float, line.strip().split())
                 coords.append([x, y])
 
-        coordinates = torch.tensor(
-            coords,
-            dtype=torch.float32,
-            device=torch.device("cpu"),
-        )
+        coordinates = torch.tensor(coords, dtype=torch.float32, device=torch.device("cpu"))
         env = TSP(coordinates)
-        result = simulated_annealing_tsp(env,                          
-                        batch_size= 128,
-                        warmup_steps = 2000,
-                        n_temps = 1024,
-                        steps_per_temp = 5,
-                        T0 = 2.0,
-                        Tend = 1e-3,
-                        seed = 0,
-                        device = torch.device('cuda'),
-                        return_traces = True,)
-        for key in result:
-            try:
-                print(result[key].shape)
-            except:
-                continue
-        print(result["trace_best"])
-        print(result['global_best'])
-        from pathlib import Path
-        import torch
 
-        out_dir = Path(f"runs/sa_tsp_{i}N")
-        out_dir.mkdir(parents=True, exist_ok=True)
+        # Collect per-chain best energies (E_best, shape (B,)) across seeds for each n_anneal
+        stats = {na: [] for na in n_anneal_grid}
 
-        trace = result["trace_best"].detach().cpu().numpy()
-        with open(out_dir / "trace_best.csv", "w") as f:
-            f.write("global_best_energy\n")
-            for v in trace:
-                f.write(f"{float(v)}\n")
-        best_idx = result["best_tour_index"].detach().cpu()
-        torch.save(best_idx, out_dir / "best_tour_index.pt")
-        
+        for n_anneal in n_anneal_grid:
+            for seed in seeds:
+                result = simulated_annealing_tsp(
+                    env,
+                    batch_size=128,
+                    warmup_steps=2000,
+                    n_temps=n_anneal,          # use n_anneal as temperature ladder length
+                    steps_per_temp=5,
+                    T0=2.0,
+                    Tend=1e-3,
+                    seed=seed,                 # use actual loop seed
+                    device=torch.device("cpu"),
+                    return_traces=False,       # do not compute/return trace_best
+                )
+
+                # Save per-run best tours (per-chain)
+                out_dir = Path(f"runs/sa_tsp_{i}New/seed{seed}2/n_anneal{n_anneal}")
+                out_dir.mkdir(parents=True, exist_ok=True)
+                best_idx = result["best_tour_index"].detach().cpu()
+                torch.save(best_idx, out_dir / "best_tour_index.pt")
+
+                # Accumulate per-chain best energies for summary
+                e_best = result["best_energy"].detach().cpu().numpy().astype(float)  # shape (B,)
+                stats[n_anneal].append(e_best)
+
+        # ---- write a single summary file per N ----
+        summary_dir = Path(f"runs/sa_tsp_{i}New")
+        summary_dir.mkdir(parents=True, exist_ok=True)
+        summary_path = summary_dir / "summary.csv"
+
+        with open(summary_path, "w") as f:
+            f.write("n_anneal,min,mean\n")
+            for na in sorted(stats.keys()):
+                # Pool all chains across all seeds for this n_anneal
+                all_e = np.concatenate(stats[na], axis=0)  # shape (num_seeds * B,)
+                f.write(f"{na},{all_e.min():.9f},{all_e.mean():.9f}\n")
+
+        print(f"Wrote summary to {summary_path}")
+
+                

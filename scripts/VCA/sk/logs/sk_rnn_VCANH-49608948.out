@@ -1,0 +1,9 @@
+ng20104
+==== Fri 12 Sep 2025 08:30:59 AM EDT | job 49608948 | node ng20104 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=1
+CUDA_VISIBLE_DEVICES=0
+0, GPU-c29f10f1-41a9-3fb5-64dc-3283065bf40a, NVIDIA A100-SXM4-40GB
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** STEP 49608948.0 ON ng20104 CANCELLED AT 2025-09-12T12:31:07 ***
+slurmstepd: error: *** JOB 49608948 ON ng20104 CANCELLED AT 2025-09-12T12:31:07 ***

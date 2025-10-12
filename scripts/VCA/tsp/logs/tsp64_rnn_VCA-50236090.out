@@ -1,0 +1,7 @@
+ng10503
+==== Sat 27 Sep 2025 08:01:55 AM EDT | job 50236090 | node ng10503 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-1dad9433-ca08-a839-000c-c3c86a009534, NVIDIA A100-SXM4-40GB
+Saved results to /home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/results/tsp/tsp64_/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/configVCA64.json_20250927_080306.csv

@@ -1,0 +1,8 @@
+ng10401
+==== Sat 27 Sep 2025 02:05:41 PM EDT | job 50243167 | node ng10401 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=0
+CUDA_VISIBLE_DEVICES=0
+0, GPU-3b315504-2da3-d2e5-abfa-e2bf20c6f41c, NVIDIA A100-SXM4-40GB
+slurmstepd: error: *** JOB 50243167 ON ng10401 CANCELLED AT 2025-09-27T18:41:19 ***
+slurmstepd: error: *** STEP 50243167.0 ON ng10401 CANCELLED AT 2025-09-27T18:41:19 ***

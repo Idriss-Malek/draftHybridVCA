@@ -1,0 +1,91 @@
+ng10304
+==== Sun 28 Sep 2025 02:07:22 PM EDT | job 50280942 | node ng10304 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=3
+CUDA_VISIBLE_DEVICES=0
+0, GPU-f66d2b5d-eb90-5e9f-28c4-f64f73866be9, NVIDIA A100-SXM4-40GB
+=== KL-controlled VCA (IG-2) start ===
+[cfg] T0=2  T_min=0.001  delta_kl=1.000e-02  mode=fo+so  inner_steps=10  w_clip=1000000.0  B_est=128  B_train=128
+[0000] T=2 -> 1.9978  ΔT=-2.234e-03  (FO=-2.234e-03, SO=-1.520e-01) | E_p: mean=0.367624 min=-19.6828 max=24.0429 | E_π̂=-17.5359  ΔÊ=17.9035  Var_π̂=13.8509  ζ̂=0.865682 | ESS=1.9 (1.5%)  S≈69.2688 -> 69.2597 | F(λ;T): -138.17 -> F(λ;T_next): -138.157 | grad_norm≈17.9
+[WARN] Low ESS at step 0: ESS=1.9 (1.5% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0001] T=1.9978 -> 1.9938  ΔT=-3.926e-03  (FO=-3.926e-03, SO=-2.057e-01) | E_p: mean=0.310255 min=-13.346 max=20.6209 | E_π̂=-9.8567  ΔÊ=10.167  Var_π̂=7.52826  ζ̂=0.472625 | ESS=12.5 (9.7%)  S≈69.2967 -> 69.1721 | F(λ;T): -138.128 -> F(λ;T_next): -138.921 | grad_norm≈4.24
+[WARN] Low ESS at step 1: ESS=12.5 (9.7% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0002] T=1.9938 -> 1.9911  ΔT=-2.711e-03  (FO=-2.711e-03, SO=-1.553e-01) | E_p: mean=-0.586112 min=-17.5673 max=16.9647 | E_π̂=-15.2479  ΔÊ=14.6618  Var_π̂=13.109  ζ̂=0.829484 | ESS=2.4 (1.9%)  S≈69.2767 -> 69.1651 | F(λ;T): -138.713 -> F(λ;T_next): -137.132 | grad_norm≈13.2
+[WARN] Low ESS at step 2: ESS=2.4 (1.9% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0003] T=1.9911 -> 1.9881  ΔT=-2.979e-03  (FO=-2.979e-03, SO=-1.737e-01) | E_p: mean=-0.568675 min=-17.3107 max=16.5827 | E_π̂=-13.8763  ΔÊ=13.3076  Var_π̂=10.4215  ζ̂=0.663032 | ESS=6.9 (5.4%)  S≈69.3255 -> 69.2267 | F(λ;T): -138.605 -> F(λ;T_next): -137.407 | grad_norm≈8.1
+[WARN] Low ESS at step 3: ESS=6.9 (5.4% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0004] T=1.9881 -> 1.9851  ΔT=-3.029e-03  (FO=-3.029e-03, SO=-1.980e-01) | E_p: mean=0.408397 min=-14.7085 max=18.0363 | E_π̂=-12.642  ΔÊ=13.0504  Var_π̂=7.96704  ζ̂=0.509918 | ESS=6.0 (4.7%)  S≈69.2369 -> 69.2086 | F(λ;T): -137.245 -> F(λ;T_next): -136.168 | grad_norm≈3.43
+[WARN] Low ESS at step 4: ESS=6.0 (4.7% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0005] T=1.9851 -> 1.9828  ΔT=-2.358e-03  (FO=-2.358e-03, SO=-2.165e-01) | E_p: mean=0.274387 min=-18.0775 max=16.892 | E_π̂=-16.4376  ΔÊ=16.712  Var_π̂=6.62818  ζ̂=0.426822 | ESS=3.3 (2.6%)  S≈69.1962 -> 69.2229 | F(λ;T): -137.088 -> F(λ;T_next): -137.47 | grad_norm≈3.43
+[WARN] Low ESS at step 5: ESS=3.3 (2.6% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0006] T=1.9828 -> 1.9806  ΔT=-2.188e-03  (FO=-2.188e-03, SO=-1.887e-01) | E_p: mean=0.488968 min=-19.0926 max=16.4624 | E_π̂=-17.4781  ΔÊ=17.967  Var_π̂=8.68503  ζ̂=0.561938 | ESS=2.2 (1.7%)  S≈69.2903 -> 69.2258 | F(λ;T): -136.897 -> F(λ;T_next): -136.438 | grad_norm≈3.66
+[WARN] Low ESS at step 6: ESS=2.2 (1.7% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0007] T=1.9806 -> 1.9783  ΔT=-2.254e-03  (FO=-2.254e-03, SO=-2.352e-01) | E_p: mean=0.186944 min=-18.9545 max=17.2348 | E_π̂=-17.2177  ΔÊ=17.4046  Var_π̂=5.56181  ζ̂=0.361452 | ESS=3.7 (2.9%)  S≈69.2564 -> 69.2854 | F(λ;T): -136.981 -> F(λ;T_next): -136.74 | grad_norm≈4.53
+[WARN] Low ESS at step 7: ESS=3.7 (2.9% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0008] T=1.9783 -> 1.9764  ΔT=-1.915e-03  (FO=-1.915e-03, SO=-2.114e-01) | E_p: mean=0.286572 min=-21.5915 max=14.6784 | E_π̂=-20.1506  ΔÊ=20.4372  Var_π̂=6.85777  ζ̂=0.447709 | ESS=2.3 (1.8%)  S≈69.2526 -> 69.2451 | F(λ;T): -136.717 -> F(λ;T_next): -136.939 | grad_norm≈9.93
+[WARN] Low ESS at step 8: ESS=2.3 (1.8% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0009] T=1.9764 -> 1.9731  ΔT=-3.314e-03  (FO=-3.314e-03, SO=-2.183e-01) | E_p: mean=-0.95077 min=-14.9858 max=14.0935 | E_π̂=-12.7368  ΔÊ=11.7861  Var_π̂=6.40444  ζ̂=0.419736 | ESS=11.9 (9.3%)  S≈69.1924 -> 69.249 | F(λ;T): -137.703 -> F(λ;T_next): -136.649 | grad_norm≈5.15
+[WARN] Low ESS at step 9: ESS=11.9 (9.3% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0010] T=1.9731 -> 1.9703  ΔT=-2.742e-03  (FO=-2.742e-03, SO=-2.038e-01) | E_p: mean=-0.750161 min=-16.4955 max=12.6874 | E_π̂=-14.9463  ΔÊ=14.1961  Var_π̂=7.29895  ζ̂=0.481583 | ESS=3.0 (2.4%)  S≈69.2456 -> 69.2576 | F(λ;T): -137.378 -> F(λ;T_next): -135.915 | grad_norm≈4.19
+[WARN] Low ESS at step 10: ESS=3.0 (2.4% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0011] T=1.9703 -> 1.9684  ΔT=-1.976e-03  (FO=-1.976e-03, SO=-1.663e-01) | E_p: mean=-0.221688 min=-21.5481 max=14.3681 | E_π̂=-19.8668  ΔÊ=19.6451  Var_π̂=10.8945  ζ̂=0.722829 | ESS=1.8 (1.4%)  S≈69.169 -> 69.2775 | F(λ;T): -136.509 -> F(λ;T_next): -136.142 | grad_norm≈6.79
+[WARN] Low ESS at step 11: ESS=1.8 (1.4% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0012] T=1.9684 -> 1.9656  ΔT=-2.818e-03  (FO=-2.818e-03, SO=-1.441e-01) | E_p: mean=-0.0747394 min=-18.1843 max=15.7515 | E_π̂=-13.8215  ΔÊ=13.7468  Var_π̂=14.4605  ζ̂=0.963285 | ESS=6.6 (5.2%)  S≈69.2274 -> 69.2912 | F(λ;T): -136.34 -> F(λ;T_next): -136.106 | grad_norm≈13.8
+[WARN] Low ESS at step 12: ESS=6.6 (5.2% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0013] T=1.9656 -> 1.9629  ΔT=-2.674e-03  (FO=-2.674e-03, SO=-1.679e-01) | E_p: mean=-0.0754517 min=-17.5959 max=20.1842 | E_π̂=-14.5232  ΔÊ=14.4478  Var_π̂=10.5894  ζ̂=0.709464 | ESS=4.2 (3.3%)  S≈69.2518 -> 69.2698 | F(λ;T): -136.194 -> F(λ;T_next): -136.263 | grad_norm≈4.51
+[WARN] Low ESS at step 13: ESS=4.2 (3.3% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0014] T=1.9629 -> 1.9603  ΔT=-2.558e-03  (FO=-2.558e-03, SO=-1.963e-01) | E_p: mean=0.652213 min=-16.2618 max=23.041 | E_π̂=-14.4077  ΔÊ=15.06  Var_π̂=7.70702  ζ̂=0.519172 | ESS=6.0 (4.7%)  S≈69.2662 -> 69.2871 | F(λ;T): -135.309 -> F(λ;T_next): -136.649 | grad_norm≈3.63
+[WARN] Low ESS at step 14: ESS=6.0 (4.7% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0015] T=1.9603 -> 1.958  ΔT=-2.353e-03  (FO=-2.353e-03, SO=-1.790e-01) | E_p: mean=-0.853987 min=-19.9636 max=15.7025 | E_π̂=-17.1825  ΔÊ=16.3286  Var_π̂=9.21322  ζ̂=0.623881 | ESS=4.4 (3.5%)  S≈69.2671 -> 69.2634 | F(λ;T): -136.64 -> F(λ;T_next): -135.881 | grad_norm≈7.54
+[WARN] Low ESS at step 15: ESS=4.4 (3.5% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0016] T=1.958 -> 1.9549  ΔT=-3.108e-03  (FO=-3.108e-03, SO=-1.628e-01) | E_p: mean=-0.641167 min=-16.1502 max=18.5457 | E_π̂=-12.974  ΔÊ=12.3328  Var_π̂=11.0848  ζ̂=0.754231 | ESS=4.4 (3.5%)  S≈69.2605 -> 69.2783 | F(λ;T): -136.251 -> F(λ;T_next): -136.116 | grad_norm≈2.58
+[WARN] Low ESS at step 16: ESS=4.4 (3.5% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0017] T=1.9549 -> 1.9528  ΔT=-2.044e-03  (FO=-2.044e-03, SO=-2.053e-01) | E_p: mean=0.191762 min=-20.0888 max=24.1137 | E_π̂=-18.5039  ΔÊ=18.6957  Var_π̂=6.93123  ζ̂=0.474622 | ESS=2.4 (1.9%)  S≈69.2702 -> 69.3065 | F(λ;T): -135.222 -> F(λ;T_next): -135.638 | grad_norm≈2.85
+[WARN] Low ESS at step 17: ESS=2.4 (1.9% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0018] T=1.9528 -> 1.9499  ΔT=-2.896e-03  (FO=-2.896e-03, SO=-2.023e-01) | E_p: mean=0.51631 min=-15.19 max=15.4253 | E_π̂=-12.6496  ΔÊ=13.1659  Var_π̂=7.10894  ζ̂=0.488832 | ESS=7.7 (6.0%)  S≈69.2705 -> 69.2298 | F(λ;T): -134.756 -> F(λ;T_next): -135.362 | grad_norm≈8.85
+[WARN] Low ESS at step 18: ESS=7.7 (6.0% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0019] T=1.9499 -> 1.9474  ΔT=-2.529e-03  (FO=-2.529e-03, SO=-1.615e-01) | E_p: mean=-1.6206 min=-18.7109 max=16.6634 | E_π̂=-16.6575  ΔÊ=15.0369  Var_π̂=11.0847  ζ̂=0.766753 | ESS=2.3 (1.8%)  S≈69.2387 -> 69.2615 | F(λ;T): -136.63 -> F(λ;T_next): -134.571 | grad_norm≈8.22
+[WARN] Low ESS at step 19: ESS=2.3 (1.8% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0020] T=1.9474 -> 1.9452  ΔT=-2.181e-03  (FO=-2.181e-03, SO=-1.577e-01) | E_p: mean=0.722177 min=-19.7249 max=18.3446 | E_π̂=-16.6669  ΔÊ=17.3891  Var_π̂=11.5643  ζ̂=0.80409 | ESS=3.7 (2.9%)  S≈69.2485 -> 69.2488 | F(λ;T): -134.132 -> F(λ;T_next): -134.956 | grad_norm≈3.34
+[WARN] Low ESS at step 20: ESS=3.7 (2.9% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0021] T=1.9452 -> 1.9428  ΔT=-2.363e-03  (FO=-2.363e-03, SO=-1.748e-01) | E_p: mean=-0.258271 min=-18.448 max=14.7164 | E_π̂=-16.2689  ΔÊ=16.0106  Var_π̂=9.37114  ζ̂=0.654525 | ESS=3.2 (2.5%)  S≈69.1951 -> 69.2844 | F(λ;T): -134.857 -> F(λ;T_next): -134.797 | grad_norm≈6.68
+[WARN] Low ESS at step 21: ESS=3.2 (2.5% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0022] T=1.9428 -> 1.9409  ΔT=-1.974e-03  (FO=-1.974e-03, SO=-1.925e-01) | E_p: mean=-0.389767 min=-20.9747 max=22.387 | E_π̂=-19.5141  ΔÊ=19.1243  Var_π̂=7.68844  ζ̂=0.539615 | ESS=1.9 (1.5%)  S≈69.2684 -> 69.2836 | F(λ;T): -134.968 -> F(λ;T_next): -133.977 | grad_norm≈6.12
+[WARN] Low ESS at step 22: ESS=1.9 (1.5% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0023] T=1.9409 -> 1.9383  ΔT=-2.574e-03  (FO=-2.574e-03, SO=-1.859e-01) | E_p: mean=0.641585 min=-16.1904 max=19.036 | E_π̂=-13.9951  ΔÊ=14.6367  Var_π̂=8.21292  ζ̂=0.578774 | ESS=4.1 (3.2%)  S≈69.3007 -> 69.2974 | F(λ;T): -133.862 -> F(λ;T_next): -135.06 | grad_norm≈9.81
+[WARN] Low ESS at step 23: ESS=4.1 (3.2% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0024] T=1.9383 -> 1.9361  ΔT=-2.189e-03  (FO=-2.189e-03, SO=-1.703e-01) | E_p: mean=-1.04791 min=-20.2659 max=22.0884 | E_π̂=-18.2102  ΔÊ=17.1623  Var_π̂=9.73074  ζ̂=0.689385 | ESS=2.3 (1.8%)  S≈69.2906 -> 69.2784 | F(λ;T): -135.354 -> F(λ;T_next): -134.613 | grad_norm≈8.17
+[WARN] Low ESS at step 24: ESS=2.3 (1.8% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0025] T=1.9361 -> 1.9344  ΔT=-1.712e-03  (FO=-1.712e-03, SO=-2.214e-01) | E_p: mean=0.0819366 min=-22.7592 max=15.4732 | E_π̂=-21.8103  ΔÊ=21.8923  Var_π̂=5.73104  ζ̂=0.407861 | ESS=1.5 (1.2%)  S≈69.2664 -> 69.2698 | F(λ;T): -134.025 -> F(λ;T_next): -134.478 | grad_norm≈5.89
+[WARN] Low ESS at step 25: ESS=1.5 (1.2% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0026] T=1.9344 -> 1.9318  ΔT=-2.631e-03  (FO=-2.631e-03, SO=-2.126e-01) | E_p: mean=0.69438 min=-15.4777 max=15.8355 | E_π̂=-13.5264  ΔÊ=14.2208  Var_π̂=6.19382  ζ̂=0.442359 | ESS=4.6 (3.6%)  S≈69.2406 -> 69.2545 | F(λ;T): -133.245 -> F(λ;T_next): -133.275 | grad_norm≈4.34
+[WARN] Low ESS at step 26: ESS=4.6 (3.6% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0027] T=1.9318 -> 1.9288  ΔT=-2.970e-03  (FO=-2.970e-03, SO=-2.010e-01) | E_p: mean=0.324255 min=-14.9268 max=18.1642 | E_π̂=-12.242  ΔÊ=12.5663  Var_π̂=6.89437  ζ̂=0.495081 | ESS=10.5 (8.2%)  S≈69.2912 -> 69.2242 | F(λ;T): -133.53 -> F(λ;T_next): -134.283 | grad_norm≈5.86
+[WARN] Low ESS at step 27: ESS=10.5 (8.2% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0028] T=1.9288 -> 1.9265  ΔT=-2.309e-03  (FO=-2.309e-03, SO=-1.791e-01) | E_p: mean=0.673566 min=-17.2054 max=16.2478 | E_π̂=-15.4409  ΔÊ=16.1145  Var_π̂=8.63003  ζ̂=0.623542 | ESS=2.5 (1.9%)  S≈69.2078 -> 69.2196 | F(λ;T): -132.814 -> F(λ;T_next): -133.767 | grad_norm≈3.71
+[WARN] Low ESS at step 28: ESS=2.5 (1.9% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0029] T=1.9265 -> 1.9246  ΔT=-1.935e-03  (FO=-1.935e-03, SO=-2.072e-01) | E_p: mean=-0.677298 min=-21.312 max=16.6328 | E_π̂=-19.8606  ΔÊ=19.1833  Var_π̂=6.41694  ζ̂=0.465867 | ESS=3.0 (2.3%)  S≈69.1535 -> 69.2815 | F(λ;T): -133.901 -> F(λ;T_next): -132.557 | grad_norm≈6.69
+[WARN] Low ESS at step 29: ESS=3.0 (2.3% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0030] T=1.9246 -> 1.9216  ΔT=-2.924e-03  (FO=-2.924e-03, SO=-1.970e-01) | E_p: mean=0.0574037 min=-15.0043 max=18.4919 | E_π̂=-12.6105  ΔÊ=12.6679  Var_π̂=7.06852  ζ̂=0.515238 | ESS=7.8 (6.1%)  S≈69.2689 -> 69.1781 | F(λ;T): -133.254 -> F(λ;T_next): -133.177 | grad_norm≈9.2
+[WARN] Low ESS at step 30: ESS=7.8 (6.1% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0031] T=1.9216 -> 1.9191  ΔT=-2.551e-03  (FO=-2.551e-03, SO=-1.512e-01) | E_p: mean=0.350321 min=-16.9209 max=18.8773 | E_π̂=-14.1226  ΔÊ=14.473  Var_π̂=11.923  ζ̂=0.874389 | ESS=3.8 (3.0%)  S≈69.2182 -> 69.1428 | F(λ;T): -132.661 -> F(λ;T_next): -132.254 | grad_norm≈4.54
+[WARN] Low ESS at step 31: ESS=3.8 (3.0% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0032] T=1.9191 -> 1.9167  ΔT=-2.416e-03  (FO=-2.416e-03, SO=-1.451e-01) | E_p: mean=-0.0845731 min=-17.7784 max=15.8827 | E_π̂=-15.3305  ΔÊ=15.2459  Var_π̂=12.8839  ζ̂=0.949895 | ESS=2.9 (2.2%)  S≈69.0947 -> 69.0618 | F(λ;T): -132.683 -> F(λ;T_next): -132.462 | grad_norm≈5.44
+[WARN] Low ESS at step 32: ESS=2.9 (2.2% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0033] T=1.9167 -> 1.9148  ΔT=-1.838e-03  (FO=-1.838e-03, SO=-2.306e-01) | E_p: mean=-1.16079 min=-21.7403 max=18.7657 | E_π̂=-21.1499  ΔÊ=19.9891  Var_π̂=5.07597  ζ̂=0.376128 | ESS=1.2 (0.9%)  S≈69.0801 -> 69.2921 | F(λ;T): -133.564 -> F(λ;T_next): -132.503 | grad_norm≈5.54
+[WARN] Low ESS at step 33: ESS=1.2 (0.9% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0034] T=1.9148 -> 1.913  ΔT=-1.818e-03  (FO=-1.818e-03, SO=-1.949e-01) | E_p: mean=-0.237191 min=-21.4015 max=15.4423 | E_π̂=-20.4059  ΔÊ=20.1687  Var_π̂=7.0799  ζ̂=0.526636 | ESS=1.3 (1.0%)  S≈69.22 -> 69.2327 | F(λ;T): -132.781 -> F(λ;T_next): -133.075 | grad_norm≈7.77
+[WARN] Low ESS at step 34: ESS=1.3 (1.0% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0035] T=1.913 -> 1.9107  ΔT=-2.278e-03  (FO=-2.278e-03, SO=-1.985e-01) | E_p: mean=0.0688854 min=-17.7416 max=15.6653 | E_π̂=-15.9981  ΔÊ=16.0669  Var_π̂=6.80099  ζ̂=0.507815 | ESS=4.7 (3.7%)  S≈69.2612 -> 69.2205 | F(λ;T): -132.428 -> F(λ;T_next): -132.153 | grad_norm≈2.76
+[WARN] Low ESS at step 35: ESS=4.7 (3.7% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0036] T=1.9107 -> 1.9086  ΔT=-2.167e-03  (FO=-2.167e-03, SO=-1.815e-01) | E_p: mean=-0.784714 min=-18.7922 max=19.9683 | E_π̂=-17.6332  ΔÊ=16.8485  Var_π̂=8.08862  ζ̂=0.606845 | ESS=2.3 (1.8%)  S≈69.3214 -> 69.2215 | F(λ;T): -133.239 -> F(λ;T_next): -131.549 | grad_norm≈6.39
+[WARN] Low ESS at step 36: ESS=2.3 (1.8% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0037] T=1.9086 -> 1.9057  ΔT=-2.850e-03  (FO=-2.850e-03, SO=-1.960e-01) | E_p: mean=0.351178 min=-15.3187 max=19.3661 | E_π̂=-12.432  ΔÊ=12.7832  Var_π̂=6.91049  ζ̂=0.520815 | ESS=7.7 (6.0%)  S≈69.2571 -> 69.2973 | F(λ;T): -131.83 -> F(λ;T_next): -131.594 | grad_norm≈7.66
+[WARN] Low ESS at step 37: ESS=7.7 (6.0% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0038] T=1.9057 -> 1.9042  ΔT=-1.546e-03  (FO=-1.546e-03, SO=-2.229e-01) | E_p: mean=-0.296582 min=-24.5949 max=22.193 | E_π̂=-23.7853  ΔÊ=23.4887  Var_π̂=5.3086  ζ̂=0.402485 | ESS=1.3 (1.0%)  S≈69.3002 -> 69.2667 | F(λ;T): -132.363 -> F(λ;T_next): -132.868 | grad_norm≈4.68
+[WARN] Low ESS at step 38: ESS=1.3 (1.0% of 128). Consider increasing est_batch_size or relaxing w_clip.
+[0039] T=1.9042 -> 1.9021  ΔT=-2.047e-03  (FO=-2.047e-03, SO=-1.816e-01) | E_p: mean=-1.50329 min=-21.6544 max=16.0158 | E_π̂=-19.2188  ΔÊ=17.7155  Var_π̂=7.9742  ζ̂=0.606551 | ESS=3.9 (3.0%)  S≈69.2252 -> 69.2743 | F(λ;T): -133.32 -> F(λ;T_next): -132.425 | grad_norm≈5.25
+[WARN] Low ESS at step 39: ESS=3.9 (3.0% of 128). Consider increasing est_batch_size or relaxing w_clip.
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** JOB 50280942 ON ng10304 CANCELLED AT 2025-09-28T18:10:07 ***
+slurmstepd: error: *** STEP 50280942.0 ON ng10304 CANCELLED AT 2025-09-28T18:10:07 ***

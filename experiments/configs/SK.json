@@ -1,0 +1,24 @@
+{
+  "model_type": "DilatedRNN",
+  "device": "cuda",
+
+  "seq_size": 100,
+  "vocab_size": 2,
+
+  "num_layers": 6,
+  "units": 40,
+
+  "lr": 0.001,
+  "batch_size": 128,
+
+  "T0": 2.0,
+
+  "n_warmup": 2000,
+  "n_anneal": 3000,
+  "iter_per_temp": 10,
+
+  "T_min": 1e-5,
+  "delta_kl": 1e-3,
+  "inner_steps": 10,
+  "est_batch_size": 128
+}

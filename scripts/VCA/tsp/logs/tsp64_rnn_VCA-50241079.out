@@ -1,0 +1,9 @@
+ng31002
+==== Sat 27 Sep 2025 12:23:51 PM EDT | job 50241079 | node ng31002 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=0
+CUDA_VISIBLE_DEVICES=0
+0, GPU-8ab68481-6a99-841f-884a-706fa5e16acd, NVIDIA A100-SXM4-40GB
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** STEP 50241079.0 ON ng31002 CANCELLED AT 2025-09-27T18:41:24 ***
+slurmstepd: error: *** JOB 50241079 ON ng31002 CANCELLED AT 2025-09-27T18:41:24 ***

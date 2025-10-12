@@ -1,3 +1,3 @@
 from .dilatedRNN import DilatedRNN
-
-__all__ = ['DilatedRNN']
+from .vanillaRNN import VanillaRNN
+__all__ = ['DilatedRNN','VanillaRNN']

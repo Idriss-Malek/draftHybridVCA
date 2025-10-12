@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/experiments/TSP/TSP128/adavca.py", line 22, in <module>
+    from algos import VCA, adaVCA2
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/algos/__init__.py", line 3, in <module>
+    from .adavca2 import adaVCA2
+ImportError: cannot import name 'adaVCA2' from 'algos.adavca2' (/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/algos/adavca2.py)
+srun: error: ng10103: task 0: Exited with exit code 1

@@ -1,0 +1,9 @@
+ng10702
+==== Fri 19 Sep 2025 01:23:26 PM EDT | job 49921073 | node ng10702 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=3
+CUDA_VISIBLE_DEVICES=0
+0, GPU-79252bd7-2463-79eb-a15b-02998617eecc, NVIDIA A100-SXM4-40GB
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** JOB 49921073 ON ng10702 CANCELLED AT 2025-09-19T22:23:35 DUE TO TIME LIMIT ***
+slurmstepd: error: *** STEP 49921073.0 ON ng10702 CANCELLED AT 2025-09-19T22:23:35 DUE TO TIME LIMIT ***

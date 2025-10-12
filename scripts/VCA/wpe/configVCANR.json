@@ -1,0 +1,29 @@
+{
+  "model_type": "NeighborMLP",
+  "device": "cuda",
+  "seed": 3,
+  "alpha":0.15,
+
+  "seq_size": 32,
+  "vocab_size": 2,
+  "input_size":32,
+  "layer_sizes":[1024,1024],
+  "base_tensor":"random",
+
+  "num_layers": 6,
+  "units": 40,
+
+  "lr": 0.001,
+  "batch_size": 128,
+
+  "n_supervised": 0,
+  "T0": 2.0,
+
+  "n_warmup": 2000,
+  "n_anneal": 1024,
+  "iter_per_temp": 5,
+
+  "heuristic": "SA",
+  "heuristic_samples": "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/heuristic_samples/SA/sk"
+
+}

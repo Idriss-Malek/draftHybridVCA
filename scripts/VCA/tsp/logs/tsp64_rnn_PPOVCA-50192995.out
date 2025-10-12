@@ -1,0 +1,19 @@
+ng10602
+==== Fri 26 Sep 2025 03:37:29 AM EDT | job 50192995 | node ng10602 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=0
+CUDA_VISIBLE_DEVICES=0
+0, GPU-196d6c43-1d50-5538-2bc5-0da12ed0f7f9, NVIDIA A100-SXM4-40GB
+/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ppo.py:49: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model_opt.load_state_dict(torch.load("/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/vca.pth", map_location=device), strict=True)
+/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ppo.py:62: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  heuristic_samples_idx = torch.load(heuristic_samples_file, map_location=device)
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ppo.py", line 295, in <module>
+    result = main(config)
+             ^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ppo.py", line 63, in main
+    heuristic_samples = F.one_hot(
+                        ^
+UnboundLocalError: cannot access local variable 'F' where it is not associated with a value
+srun: error: ng10602: task 0: Exited with exit code 1

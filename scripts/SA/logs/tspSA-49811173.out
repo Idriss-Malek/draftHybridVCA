@@ -1,0 +1,9 @@
+ng31104
+==== Wed 17 Sep 2025 10:01:26 AM EDT | job 49811173 | node ng31104 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-fab1d027-a5d0-96f7-60c8-3fb32519385f, NVIDIA A100-SXM4-40GB
+Wrote summary to runs/sa_tsp_64New/summary.csv
+Wrote summary to runs/sa_tsp_128New/summary.csv
+Wrote summary to runs/sa_tsp_256New/summary.csv

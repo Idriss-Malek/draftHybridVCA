@@ -1,0 +1,15 @@
+ng10504
+==== Mon 29 Sep 2025 02:02:39 AM EDT | job 50316947 | node ng10504 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=0
+CUDA_VISIBLE_DEVICES=0
+0, GPU-d9a24563-aa9a-1141-2b1f-280890e15238, NVIDIA A100-SXM4-40GB
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ada.py", line 323, in <module>
+    result = main(config)
+             ^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/runs/tsp_ada.py", line 118, in main
+    grad_clip_norm = float(config.get("grad_clip_norm", None))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: float() argument must be a string or a real number, not 'NoneType'
+srun: error: ng10504: task 0: Exited with exit code 1

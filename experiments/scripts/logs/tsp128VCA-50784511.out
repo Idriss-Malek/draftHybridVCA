@@ -1,0 +1,3 @@
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** STEP 50784511.0 ON ng11102 CANCELLED AT 2025-10-10T13:49:35 ***
+slurmstepd: error: *** JOB 50784511 ON ng11102 CANCELLED AT 2025-10-10T13:49:35 ***

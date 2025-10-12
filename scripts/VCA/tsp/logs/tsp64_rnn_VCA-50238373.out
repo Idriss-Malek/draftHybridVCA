@@ -1,0 +1,9 @@
+ng10103
+==== Sat 27 Sep 2025 09:26:41 AM EDT | job 50238373 | node ng10103 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=2
+CUDA_VISIBLE_DEVICES=0
+0, GPU-8122fb32-8264-a206-16d2-8368d6aa7a97, NVIDIA A100-SXM4-40GB
+srun: Job step aborted: Waiting up to 62 seconds for job step to finish.
+slurmstepd: error: *** STEP 50238373.0 ON ng10103 CANCELLED AT 2025-09-27T15:15:21 ***
+slurmstepd: error: *** JOB 50238373 ON ng10103 CANCELLED AT 2025-09-27T15:15:21 ***

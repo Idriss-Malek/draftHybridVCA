@@ -1,0 +1,28 @@
+ng30603
+==== Wed 17 Sep 2025 09:57:06 AM EDT | job 49805389 | node ng30603 ====
+model= instance= sa_anneal=
+SLURM_JOB_GPUS=3
+CUDA_VISIBLE_DEVICES=0
+0, GPU-4351b05c-3005-8e2d-0477-33a0b0e86626, NVIDIA A100-SXM4-40GB
+Traceback (most recent call last):
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/SA/tsp.py", line 185, in <module>
+    result = simulated_annealing_tsp(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre06/project/6096737/idrissm/vca/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/SA/tsp.py", line 58, in simulated_annealing_tsp
+    P = random_perm_matrices(B, n)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/SA/tsp.py", line 49, in random_perm_matrices
+    noise = rand(B, n)
+            ^^^^^^^^^^
+  File "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/SA/tsp.py", line 37, in <lambda>
+    rand = lambda *shape: torch.rand(*shape, device=device, generator=g)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+srun: error: ng30603: task 0: Exited with exit code 1

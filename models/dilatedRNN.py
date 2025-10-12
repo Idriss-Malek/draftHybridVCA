@@ -12,7 +12,10 @@ class DilatedRNN(nn.Module):
         self.device = torch.device(config['device'])
         self.env = env 
 
-        self._set_random_seeds(config['seed'])
+        try:
+            self._set_random_seeds(config['seed'])
+        except: 
+            pass
         
         self.vocab_size = config['vocab_size']
         self.seq_size = config['seq_size']
@@ -130,7 +133,7 @@ class DilatedRNN(nn.Module):
             [torch.zeros(B, self.units, device=self.device, dtype=torch.float64) for _ in range(T)]
             for _ in range(self.num_layers)
         ]
-
+        
         for t in range(T):
             prefix = samples_onehot[:, :t, :]      # (B, t, V)
             mask = self.env.behaviorAR(prefix)     # (B, V)
