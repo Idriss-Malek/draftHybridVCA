@@ -1,4 +1,19 @@
 import sys
+from pathlib import Path
+
+_repo_root = Path(__file__).resolve()
+for parent in _repo_root.parents:
+    if (parent / ".git").exists():
+        _repo_root = parent
+        break
+else:
+    _repo_root = _repo_root.parent
+
+_repo_root_str = str(_repo_root)
+if _repo_root_str not in sys.path:
+    sys.path.append(_repo_root_str)
+
+import sys
 import os
 import argparse
 import json
@@ -6,7 +21,6 @@ import csv
 import os
 from datetime import datetime
 
-sys.path.append("/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA")
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 from envs import SherringtonKirkpatrick
@@ -131,7 +145,6 @@ if __name__ == "__main__":
     # Load config JSON -> dict
     with open(args.config, "r") as f:
         config = json.load(f)
-    wpe_data = f"/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/WPE_Instances/{config['seq_size']}_WPE_{int(100*config['alpha'])}_seed{config['seed']}.txt"
 
     out_path = args.out or os.path.join(
         current_dir,

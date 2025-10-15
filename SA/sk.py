@@ -1,9 +1,25 @@
+import sys
+from pathlib import Path
+    sk_instances_dir = _repo_root / "data" / "SK_Instances"
+    sk_data = str(sk_instances_dir / "100_SK_seed1.txt")
+
+_repo_root = Path(__file__).resolve()
+for parent in _repo_root.parents:
+    if (parent / ".git").exists():
+        _repo_root = parent
+        break
+else:
+    _repo_root = _repo_root.parent
+
+_repo_root_str = str(_repo_root)
+if _repo_root_str not in sys.path:
+    sys.path.append(_repo_root_str)
+
 from typing import Optional, Dict, Any
 import torch
 import torch.nn.functional as F
 
 import sys
-sys.path.append('/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA')
 from envs import SherringtonKirkpatrick as SK
 
 @torch.no_grad()
@@ -181,7 +197,6 @@ if __name__ == "__main__":
     import torch
     from pathlib import Path
 
-    sk_data = "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/SK_Instances/100_SK_seed1.txt"
     device = torch.device("cuda" if torch.cuda.is_available() else 'cpu')
 
     

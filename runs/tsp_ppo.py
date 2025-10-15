@@ -1,4 +1,19 @@
 import sys
+from pathlib import Path
+
+_repo_root = Path(__file__).resolve()
+for parent in _repo_root.parents:
+    if (parent / ".git").exists():
+        _repo_root = parent
+        break
+else:
+    _repo_root = _repo_root.parent
+
+_repo_root_str = str(_repo_root)
+if _repo_root_str not in sys.path:
+    sys.path.append(_repo_root_str)
+
+import sys
 import os
 import argparse
 import json
@@ -7,7 +22,6 @@ import os
 from datetime import datetime
 import copy
 
-sys.path.append("/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA")
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 from envs import TSP
@@ -19,10 +33,11 @@ import torch.optim as optim
 import torch.nn.functional as F
 
 
+tsp_instances_dir = _repo_root / "data" / "TSP Instances"
 tsp_data = {
-    64: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N64.txt",
-    128: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N128.txt",
-    256: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N256.txt",
+    64: str(tsp_instances_dir / "coordinates_N64.txt"),
+    128: str(tsp_instances_dir / "coordinates_N128.txt"),
+    256: str(tsp_instances_dir / "coordinates_N256.txt"),
 }
 
 
@@ -46,7 +61,6 @@ def main(config):
         model = VanillaRNN(config, env)
     optimizer = optim.Adam(model.parameters(), lr=config["lr"])
     original_weights = copy.deepcopy(model)
-    model_opt.load_state_dict(torch.load("/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/vca.pth", map_location=device), strict=True)
 
     # if config["n_supervised"] is not None and config["n_supervised"] > 0:
     heuristic_samples_file = os.path.normpath(
@@ -167,7 +181,6 @@ def main(config):
                 if approx_kl > 1.5 * target_kl:
                     break
  
-    # torch.save(model.state_dict(), "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/scripts/VCA/tsp/vca.pth")
     # from torch.nn.utils import parameters_to_vector, vector_to_parameters
 
     # def _device_of(model):

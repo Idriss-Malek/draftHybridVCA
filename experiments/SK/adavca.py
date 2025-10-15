@@ -1,4 +1,19 @@
 import sys
+from pathlib import Path
+
+_repo_root = Path(__file__).resolve()
+for parent in _repo_root.parents:
+    if (parent / ".git").exists():
+        _repo_root = parent
+        break
+else:
+    _repo_root = _repo_root.parent
+
+_repo_root_str = str(_repo_root)
+if _repo_root_str not in sys.path:
+    sys.path.append(_repo_root_str)
+
+import sys
 import os
 import argparse
 import json
@@ -8,7 +23,6 @@ import copy
 import random
 import numpy as np
 
-sys.path.append("/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA")
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 from models import DilatedRNN, VanillaRNN
@@ -69,7 +83,8 @@ def read_matrix(path: str) -> torch.Tensor:
 def main(config, seed: int):
     set_seed(seed)
     device = torch.device(config["device"])
-    sk_data = f"/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/SK_Instances/100_SK_seed{seed}.txt"
+    sk_instances_dir = _repo_root / "data" / "SK_Instances"
+    sk_data = str(sk_instances_dir / f"100_SK_seed{seed}")
     J = read_matrix(sk_data).to(dtype=torch.float64, device=device)
 
     env = SherringtonKirkpatrick(J)
