@@ -1,3 +1,5 @@
 from .dilatedRNN import DilatedRNN
 from .vanillaRNN import VanillaRNN
-__all__ = ['DilatedRNN','VanillaRNN']
+from .gnn import GINAutoregressive
+
+__all__ = ['DilatedRNN', 'VanillaRNN', 'GINAutoregressive']

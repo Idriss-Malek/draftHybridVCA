@@ -1,5 +1,7 @@
 from .adavca import adaVCA
 from .vca import VCA
-from .adavca2 import adaVCA2
+from .simulated_annealing import simulated_annealing
+from .gflownet import train_gflownet
+from .adagfn import adaptive_gflownet
 
-__all__ = ["adaVCA", "VCA", "adaVCA2"]
+__all__ = ["adaVCA", "VCA", "simulated_annealing", "train_gflownet", "adaptive_gflownet"]

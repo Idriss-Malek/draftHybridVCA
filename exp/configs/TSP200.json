@@ -1,0 +1,52 @@
+{
+  "model": {
+    "model_type": "DilatedRNN",
+    "device": "cuda",
+    "seq_size": 200,
+    "vocab_size": 200,
+    "num_layers": 7,
+    "units": 40,
+    "lr": 0.001
+  },
+  "training": {
+    "batch_size": 128,
+    "n_warmup": 2000,
+    "n_anneal": 5000,
+    "iter_per_temp": 10
+  },
+  "adavca": {
+    "T0": 2.0,
+    "T_min": 1e-5,
+    "delta_kl": 3e-3,
+    "inner_steps": 10,
+    "est_batch_size": 128,
+    "schedule_mode": "fo+so",
+    "w_clip": 1000000.0,
+    "ess_warn_frac": 0.1,
+    "grad_clip_norm": 1.0
+  },
+  "gflownet": {
+    "n_steps": 2000,
+    "temperature": 1.0
+  },
+  "adagfn": {
+    "n_steps": 2000,
+    "T0": 2.0,
+    "T_min": 1e-3,
+    "delta_kl": 3e-3,
+    "inner_steps": 10,
+    "est_batch_size": 128,
+    "schedule_mode": "fo+so"
+  },
+  "simulated_annealing": {
+    "batch_size": 128,
+    "warmup_steps": 100,
+    "n_temps": 200,
+    "steps_per_temp": 50,
+    "schedule": "geometric",
+    "T0": 2.0,
+    "Tend": 1e-3,
+    "seed": null,
+    "canonicalize": false
+  }
+}
