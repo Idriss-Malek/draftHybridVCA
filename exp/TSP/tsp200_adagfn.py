@@ -6,7 +6,7 @@ from typing import Dict
 
 import torch
 
-from algos import adaptive_gflownet
+from neighborVCA.algos import adaptive_gflownet
 from envs import TSP
 
 from exp.TSP.utils import (

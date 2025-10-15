@@ -5,7 +5,7 @@ from typing import Dict
 
 import torch
 
-from algos import VCA, adaVCA
+from neighborVCA.algos import VCA, adaVCA
 from envs import TSP
 
 from exp.TSP.utils import (

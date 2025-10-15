@@ -7,7 +7,7 @@ from typing import Dict
 import torch
 import torch.nn.functional as F
 
-from algos import simulated_annealing
+from neighborVCA.algos import simulated_annealing
 from envs import TSP
 
 from exp.TSP.utils import (
