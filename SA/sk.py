@@ -5,7 +5,7 @@ from pathlib import Path
 
 _repo_root = Path(__file__).resolve()
 for parent in _repo_root.parents:
-    if (parent / ".git").exists():
+    if (parent / ".gitignore").exists():
         _repo_root = parent
         break
 else:

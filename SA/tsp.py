@@ -1,9 +1,23 @@
+import sys
+from pathlib import Path
+
+_repo_root = Path(__file__).resolve()
+for parent in _repo_root.parents:
+    if (parent / ".gitignore").exists():
+        _repo_root = parent
+        break
+else:
+    _repo_root = _repo_root.parent
+
+_repo_root_str = str(_repo_root)
+if _repo_root_str not in sys.path:
+    sys.path.append(_repo_root_str)
+
 from typing import Optional, Dict, Any
 import torch
 import torch.nn.functional as F
 
 import sys
-sys.path.append('/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA')
 
 from envs import TSP
 
@@ -155,10 +169,11 @@ if __name__ == "__main__":
     from pathlib import Path
     import numpy as np
 
+    tsp_instances_dir = _repo_root / "data" / "TSP Instances"
     tsp_data = {
-        64: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N64.txt",
-        128: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N128.txt",
-        256: "/home/idrissm/projects/def-mh541-ab/idrissm/neighborVCA/data/TSP Instances/coordinates_N256.txt",
+        64: str(tsp_instances_dir / "coordinates_N64.txt"),
+        128: str(tsp_instances_dir / "coordinates_N128.txt"),
+        256: str(tsp_instances_dir / "coordinates_N256.txt"),
     }
 
     seeds = [111, 112, 113]
